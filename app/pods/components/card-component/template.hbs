@@ -1,0 +1,12 @@
+<a href={{repository.html_url}}>{{repository.name}}</a>
+<p>{{if repository.private 'private' 'public'}}</p>
+<p>{{repository.language}}</p>
+<p>{{concat repository.branches.length ' branches' (if isExpanded ': ' '')}}</p>
+
+{{#if isExpanded}}
+  <p>
+  {{#each repository.branches as |branch index|}}
+    {{branch.name}}{{#if (lt index (sub repository.branches.length 1))}}, {{/if}}
+  {{/each}}
+  </p>
+{{/if}}

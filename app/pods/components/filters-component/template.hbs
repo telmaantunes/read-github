@@ -1,0 +1,8 @@
+<div class="filters__title">Privacy</div>
+{{checkbox-component isChecked=showPrivate label="Private"}}
+{{checkbox-component isChecked=showPublic label="Public"}}
+
+<div class="filters__title">Language</div>
+{{#each languages as |language|}}
+  {{checkbox-component isChecked=language.isChecked label=language.label}}
+{{/each}}

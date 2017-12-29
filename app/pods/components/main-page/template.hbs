@@ -1,0 +1,20 @@
+<h1>Read github's repositories</h1>
+
+{{form-component organization=organization token=token submit=(action "getRepositories")}}
+
+{{#if repositoriesError}}
+  <h3>Error fetching {{organization}} organization' repositories.</h3>
+  <h4>Please try again later or verify your token.</h4>
+{{else if (await repositories)}}
+  <div class="container">
+    {{filters-component repositories=repositories}}
+
+    <div class="repositories">
+      {{#each repositories as |repository|}}
+        {{#if repository.visible}}
+          {{card-component repository=repository}}
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+{{/if}}

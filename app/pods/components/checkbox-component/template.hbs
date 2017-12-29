@@ -1,0 +1,7 @@
+{{input type="checkbox" checked=isChecked id=(i '${id}-checkbox' id=elementId)}}
+<label for={{i '${id}-checkbox' id=elementId}}>
+  {{label}}
+  {{#if isChecked}}
+    {{inline-svg "checked"}}
+  {{/if}}
+</label>

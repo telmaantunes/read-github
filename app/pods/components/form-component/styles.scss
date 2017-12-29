@@ -1,0 +1,114 @@
+@keyframes inputHighlighter {
+  from  { background: $main-blue; }
+  to    { width: 0; background: transparent; }
+}
+
+form {
+  display: flex;
+  margin: 24px;
+}
+
+.group {
+  position: relative;
+  margin: 16px 24px;
+}
+
+input {
+  font-size: 16px;
+  padding: 10px 0;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 2px solid $medium-blue;
+
+  &:focus {
+    outline: none;
+
+    & ~ .bar:before,
+    & ~ .bar:after {
+      width: 50%;
+    }
+
+    & ~ .highlight {
+      animation: inputHighlighter 0.3s ease;
+    }
+  }
+
+  &:focus ~ label,
+  &:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: $main-blue;
+  }
+}
+
+.bar  {
+  position: relative;
+  display: block;
+  width: 300px;
+
+  &:after,
+  &:before {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background: $main-blue;
+    transition: 0.2s ease all;
+  }
+
+  &:before {
+    left: 50%;
+  }
+
+  &:after {
+    right: 50%;
+  }
+}
+
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+label {
+  color: $medium-blue;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+}
+
+button {
+  margin: 10px;
+  padding: 16px;
+  transition: all 150ms linear;
+  color: white;
+  background-color: $main-blue;
+  font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  box-shadow: 2px 5px 10px $medium-blue;
+
+  &:hover,
+  &:active,
+  &:focus {
+    opacity: 0.8;
+    outline: 0;
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: none;
+  }
+}

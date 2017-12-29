@@ -1,0 +1,17 @@
+<form {{action "submit" organization token on="submit"}}>
+  <div class="group">
+    {{input value=organization required=true}}
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Organization</label>
+  </div>
+
+  <div class="group">
+    {{input value=token required=true}}
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Token</label>
+  </div>
+
+  <button {{action "submit" organization token}}>List repositories</button>
+</form>

@@ -1,0 +1,22 @@
+& {
+  margin: 24px;
+}
+
+.container {
+  display: flex;
+  flex-flow: row;
+  flex-direction: row;
+}
+
+.filters {
+  width: 20%;
+}
+
+.repositories {
+  position: relative;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 24px;
+  align-self: flex-start;
+}
